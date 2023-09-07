@@ -1,0 +1,58 @@
+/* Navbar for Profile */
+.account {
+    opacity: 1;
+    Transform: TranslateY(-10px);
+    Font-Weight: 900;
+}
+
+.screen {
+    padding: 2.5vh 2vw;
+    background-color: var(--bgcol);
+    position: relative;
+}
+
+#profile_section h2 {
+    font-size: 9vw;
+    margin-bottom: 20px;
+}
+
+#btns {
+    position: absolute;
+    bottom: 8%;
+}
+
+#btns .flex-row {
+    width: 90vw;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+}
+
+#submitBtn,
+.editBtn {
+    width: 25vw !important;
+}
+
+.error-box {
+    padding: 2%;
+}
+
+/* .editBtn {
+    width: 20vw !important;
+    margin-bottom: 0;
+    transform: scale(0.6);
+}
+
+.editBtnBox {
+    position: absolute;
+    top: 2px;
+    right: 15px;
+} */
+
+.readonly input {
+    pointer-events: none;
+    background-color: #f5f5f5;
+}

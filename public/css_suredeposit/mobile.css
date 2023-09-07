@@ -1,0 +1,349 @@
+li::before {
+	content: '';
+	display: inline-flex;
+	align-items: flex-end;
+	justify-content: center;
+	margin-right: 5px;
+	width: 10px;
+	height: 10px;
+	background-image: url("/img/check.svg");
+	position: relative;
+	top: 1px;
+}
+
+.main-heading {
+	font-size: 6.5vw !important;
+	line-height: 8vw;
+	letter-spacing: 0.25px;
+}
+
+.sub-heading {
+	font-size: 3.15vw;
+	line-height: 4.5vw;
+	letter-spacing: 0.5px;
+}
+
+.headings {
+	font-size: 4.5vw;
+	line-height: 6.5vw;
+	letter-spacing: 0.25px;
+}
+
+.bullets {
+	font-size: 3vw;
+	line-height: 4vw;
+	letter-spacing: 0.35px;
+}
+
+.text {
+	font-size: 2.75vw;
+	line-height: 3.5vw;
+}
+
+.padding-15 {
+	padding: 0% 5%;
+}
+
+.padding-12 {
+	padding: 1% 5%;
+}
+
+.padding-8 {
+	padding: 1% 6%;
+}
+
+.padding-top-bottom {
+	padding: 5vh 0;
+}
+
+.margin-top-bottom {
+	margin-top: 2vh;
+	margin-bottom: 2vh;
+}
+
+.margin-left-right {
+	margin-left: 2.5%;
+	margin-right: 2.5%;
+}
+
+.headers {
+	padding: 2% 0;
+}
+
+.Bodytext {
+	padding: 1% 0;
+}
+
+.phone-img-box {
+	width: 40%;
+}
+
+.phone-img {
+	width: 100%;
+	height: auto;
+}
+
+.icons2 {
+	height: 1.2vh;
+	width: auto;
+	padding-right: 5px;
+}
+
+hr.sto {
+	margin-top: 5px;
+	padding-top: 2px;
+}
+
+hr.sto:after {
+	font-size: 3.5vw;
+}
+
+.btn {
+	width: 50vw;
+	transform: scale(0.9);
+	margin-top: 1vh;
+}
+
+.btn:active {
+	transform: scale(0.8);
+}
+
+#navbar {
+	width: 100%;
+	height: 7.5vh;
+}
+
+#playBtnNav {
+	display: flex;
+	height: 4vh;
+	position: absolute;
+	right: 20px;
+	top: 2.75vh;
+}
+
+/* #hero {
+	position: relative;
+	min-height: 42.5vh;
+} */
+
+#logo {
+	position: absolute;
+	width: 35vw;
+	left: 10px;
+	top: 5px;
+	mix-blend-mode: normal;
+}
+
+.hero-grid {
+	display: flex;
+	flex-direction: column-reverse;
+	gap: 25px;
+	transition: all 0.5s;
+	margin: 0 2vw;
+}
+
+/* #bgImg {
+	filter: brightness(120%);
+} */
+
+#heroContent {
+	gap: 20px;
+	top: 15vh;
+	padding: 20px 5%;
+}
+
+.btns {
+	width: 100%;
+	gap: 0;
+	align-items: center;
+	justify-content: center;
+	margin-top: 1vh;
+}
+
+#playBtnHero {
+	display: none;
+}
+
+#heroImgBox {
+	margin-top: 2.5vh;
+	align-items: center;
+	justify-content: center;
+}
+
+#heroImg {
+	width: 90vw;
+	height: auto;
+}
+
+#featureBox {
+	padding: 15px 0;
+	gap: 8px;
+}
+
+.feature-title {
+	font-size: 1.75vw;
+	line-height: 2vw;
+}
+
+.feature-title-box {
+	margin-bottom: 5px;
+}
+
+.feature-desc {
+	font-size: 1.75vw;
+	line-height: 2.5vw;
+}
+
+.feature-title-box .icons2 {
+	position: relative;
+	top: -1px;
+}
+
+#intro {
+	margin-top: 2.5vh;
+	margin-bottom: 10vh;
+}
+
+#video {
+	aspect-ratio: 16/9;
+	width: 85vw;
+}
+
+#screens {
+	width: 90%;
+	height: auto;
+	margin: 2.5vh 0;
+}
+
+.phone-img-box {
+	display: none;
+}
+
+#benefits,
+#getStarted {
+	margin-top: 5vh;
+	margin-bottom: 5vh;
+}
+
+#benifitBox,
+#gsBox {
+	margin-right: 5vw;
+	margin-left: 5vw;
+}
+
+#benefitMain,
+#gsMain {
+	width: 80%;
+}
+
+#steps {
+	margin: auto;
+	margin-top: 1.5vh;
+	width: 80%;
+}
+
+.step-title {
+	letter-spacing: 1px;
+}
+
+.step-title img {
+	position: relative;
+	top: 0px;
+}
+
+.step-desc {
+	letter-spacing: 0.75px;
+}
+
+#faqBox {
+	width: 80%;
+}
+
+.faq-title {
+	font-size: 10px !important;
+}
+
+.faq-title img {
+	height: 1.5vh;
+	top: 1.5px;
+}
+
+#tBox {
+	width: 85%;
+	margin: 5vh auto;
+	margin-top: 10vh;
+	padding: 1vh;
+}
+
+#tMain {
+	flex-direction: column;
+	gap: 3vh;
+}
+
+.t-item {
+	border-radius: 10px;
+	padding: 2vh 4vw;
+	width: 90%;
+	min-height: 45vh;
+}
+
+.t-name {
+	margin-top: 1.5vh;
+	font-size: 16px;
+	line-height: 24px;
+}
+
+.t-desc {
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.t-item>.Bodytext {
+	bottom: 12px;
+}
+
+.t-item>.Bodytext>.text {
+	left: 2px;
+	line-height: 12px;
+	font-size: 10px;
+}
+
+#lastCall {
+	margin-bottom: 1vh;
+}
+
+.footer {
+	justify-content: space-evenly;
+	align-items: center;
+	margin: 2vh 0;
+}
+
+#favicon {
+	height: 6vh;
+}
+
+.app-links {
+	flex-direction: column;
+	gap: 0vh;
+}
+
+#playBtn {
+	margin-top: 5px;
+	height: 4vh;
+}
+
+#qr {
+	margin-top: 5px;
+	height: 15vh;
+	/* display: none; */
+}
+
+#heart {
+	width: 3.5vw;
+	position: relative;
+	top: 2px;
+}
+
+.btn-grey {
+	width: 70vw;
+}

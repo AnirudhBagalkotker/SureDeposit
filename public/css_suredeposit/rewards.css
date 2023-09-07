@@ -1,0 +1,23 @@
+.code-box .btn {
+	transform: scale(0.9);
+	font-size: 16px;
+}
+
+.code-box .btn:active {
+	transform: scale(0.8);
+}
+
+#code {
+	letter-spacing: 3px;
+	color: var(--grey2);
+}
+
+.btn-box {
+	gap: 15vw;
+    padding-top: 3.5vh;
+    padding-bottom: 1vh;
+}
+
+.btn-box .btn {
+	width: 22.5vw;
+}

@@ -1,0 +1,212 @@
+body {
+	background: linear-gradient(180deg, #1A1128 0%, #03002E 100%);
+	font-family: "Roboto", sans-serif;
+	color: var(--color-sec);
+	padding: 0;
+}
+
+a,
+img {
+	-webkit-touch-callout: none;
+	-webkit-user-select: none;
+	-khtml-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+	user-select: none;
+}
+
+ul {
+	display: flex;
+}
+
+ul li {
+	list-style: none;
+	padding: 6px 0;
+}
+
+li::before {
+	content: '';
+	display: inline-flex;
+	align-items: flex-end;
+	justify-content: center;
+	margin-right: 10px;
+	width: 20px;
+	height: 20px;
+	background-image: url("/img_landingPage/check.svg");
+	position: relative;
+	top: 3px;
+}
+
+a {
+	text-decoration: none;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+}
+
+a,
+button,
+.cur-point {
+	cursor: pointer;
+	-webkit-tap-highlight-color: transparent;
+	-webkit-touch-callout: none;
+}
+
+/* Text styles */
+
+.main-heading {
+	font-family: 'Poppins', sans-serif;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 6.5vh;
+	line-height: 8vh;
+	color: var(--color-primary);
+	letter-spacing: 0.5px;
+}
+
+.sub-heading {
+	font-family: 'Poppins', sans-serif;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 24px;
+	line-height: 36px;
+	color: var(--color-sec);
+	letter-spacing: 1px;
+}
+
+.headings {
+	font-family: 'Poppins', sans-serif;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 32px;
+	color: var(--color-primary);
+	letter-spacing: 0.5px;
+}
+
+.bullets {
+	font-family: 'Roboto', sans-serif;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 18px;
+	line-height: 28px;
+	letter-spacing: 0.75px;
+	color: var(--color-sec);
+}
+
+.text {
+	font-family: 'Roboto', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 16px;
+	line-height: 24px;
+	color: var(--color-sec);
+}
+
+/* Dimensions */
+
+.w-full {
+	width: 100%;
+}
+
+.h-full {
+	height: 100%;
+}
+
+.h-100 {
+	height: 100vh;
+}
+
+.padding-15 {
+	padding: 0% 7.5%;
+}
+
+.padding-12 {
+	padding: 1% 15%;
+}
+
+.padding-8 {
+	padding: 1% 25%;
+}
+
+.padding-top-bottom {
+	padding: 5vh 0;
+}
+
+.margin-top-bottom {
+	margin-top: 2vh;
+	margin-bottom: 2vh;
+}
+
+.margin-left-right {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.headers {
+	padding: 2% 0;
+}
+
+.Bodytext {
+	padding: 1% 0;
+}
+
+.phone-img-box {
+	width: 40%;
+}
+
+.phone-img {
+	width: 100%;
+	height: auto;
+}
+
+.btn:hover:before {
+	width: 100%;
+}
+
+.btn:active:before {
+	width: 150%;
+	left: -25%;
+}
+
+.btn-grey {
+	background-color: var(--grey);
+	color: var(--black2);
+}
+
+.btn-unselect {
+	background-color: #0062f57d;
+	color: rgba(255, 255, 255, 0.529);
+	pointer-events: none;
+	transition: all 0.35s ease;
+}
+
+.icons2 {
+	height: 20px;
+	width: auto;
+	padding-right: 8px;
+	display: inline-block;
+}
+
+.scroll {
+	opacity: 0;
+	filter: blur(3.5px);
+	transform: translateY(-8%);
+	transition: all 1s;
+}
+
+.show {
+	opacity: 1;
+	filter: blur(0);
+	transform: translateY(0);
+}
+
+.color {
+	color: var(--color-primary);
+}
+
+.color-sec {
+	color: var(--color-sec);
+}
+
+footer {
+	margin-bottom: 10px;
+}

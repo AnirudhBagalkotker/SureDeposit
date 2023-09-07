@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1, user-scalable=no">
+    <meta http-equiv=" X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="description"
+        content="Secure your future with a fixed deposit at SureDeposit - offering a world-class 18% return rate. Join today and build your wealth with confidence!">
+
+    <meta property="og:url" content="">
+    <meta property="og:type" content="application">
+    <meta property="og:title" content="SureDeposit | Secure FDs with the 'Highest Return' in the World!">
+    <meta property="og:description"
+        content="Secure your future with SureDeposit - the smart choice for high-yield fixed deposits!">
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+    <meta property="og:image" content="img_suredeposit/logo.png">
+
+    <title>SureDeposit | Settings</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img_suredeposit/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img_suredeposit/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img_suredeposit/favicon-16x16.png">
+    <link rel="manifest" href="img_suredeposit/site.webmanifest">
+    <link rel="stylesheet" href="/css_suredeposit/common.css">
+    <link rel="stylesheet" href="/css_suredeposit/settings.css">
+
+</head>
+
+<body>
+
+    <section class="hamburger-menu flex-colunm">
+        <input id="menu__toggle" type="checkbox" />
+        <label class="menu__btn" for="menu__toggle">
+            <span></span>
+        </label>
+        <div class="flex item-center">
+            <h2 class="h-6 page-title color"></h2>
+        </div>
+        <ul class="menu__box flex-colunm">
+            <a class="btn btn-grey margin-left-right menu__item" href="/profile">My Account</a>
+            <li class="menu__item">
+                <a href="/deposit"><img src="img_suredeposit/add.svg" alt="" class="icons2">
+                    Deposit</a>
+            </li>
+            <li class="menu__item">
+                <a href="/withdraw"><img src="img_suredeposit/withdraw.png" alt="" class="icons2">
+                    Withdraw</a>
+            </li>
+            <!-- <li class="menu__item">
+				<a href="/history"><img src="img_suredeposit/history.svg" alt="" class="icons2">
+					History</a>
+			</li> -->
+            <li class="menu__item">
+                <a href="/help"><img src="img_suredeposit/help.svg" alt="" class="icons2">
+                    Help & Support</a>
+            </li>
+            <li class="menu__item">
+                <a href="/rewards"><img src="img_suredeposit/gift.svg" alt="" class="icons2">
+                    Rewards</a>
+            </li>
+            <li class="menu__item">
+                <a href="/settings"><img src="img_suredeposit/settings.svg" alt="" class="icons2">
+                    Settings</a>
+            </li>
+            <a class="btn btn-grey margin-left-right menu__item sign-out" id="signout" href="/signout">Sign out</a>
+        </ul>
+    </section>
+
+    <section class="screen">
+        <div id="settings_section" class="flex-colunm">
+            <h2 class="center">Account Settings</h2>
+            <table>
+                <!-- <tr id="ir">
+                    <td>
+                        <div class="flex-colunm">
+                            <span>Auto Interest Reinvestment</span>
+                            <div class="flex-row">
+                                <span class="h-4">interest is invested back <br> on start of every month </span>
+                                <label class="switch">
+                                    <input type="checkbox">
+                                    <span class="slider"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </td>
+                    <td><img src="img_suredeposit/down-arrow.svg" alt="" class="icons2"></td>
+                </tr> -->
+                <!-- <tr onclick="location.href='changepasssetting.html'">
+                    <td> <span>Change Password</span></td>
+                    <td><img src="img_suredeposit/next.svg" alt="" class="icons2"></td>
+                </tr> -->
+                <tr onclick="location.href='/editbank'">
+                    <td> <span>Change Withdrawal Account</span></td>
+                    <td><img src="img_suredeposit/next.svg" alt="" class="icons2"></td>
+                </tr>
+                <tr onclick="location.href='/editprofile'">
+                    <td> <span>Edit Account details</span></td>
+                    <td><img src="img_suredeposit/next.svg" alt="" class="icons2"></td>
+                </tr>
+                <tr onclick="location.href='/addaadhar'">
+                    <td> <span>Add Aadhaar ID</span></td>
+                    <td><img src="img_suredeposit/next.svg" alt="" class="icons2"></td>
+                </tr>
+                <!-- <tr onclick="location.href=''">
+                    <td></td>
+                    <td><img src="img_suredeposit/next.svg" alt="" class="icons2"></td>
+                </tr>
+                <tr onclick="location.href=''">
+                    <td></td>
+                    <td><img src="img_suredeposit/next.svg" alt="" class="icons2"></td>
+                </tr> -->
+            </table>
+        </div>
+    </section>
+
+    <section id="nav">
+        <div Class="Navbar">
+            <li Class="List-Item home" onclick="location.href='/home'">
+                <img src="img_suredeposit/home2.svg" alt="Home" class="icons">
+                <span Class="List-Item-Name">Home</span>
+            </li>
+            <li Class="List-Item dash" onclick="location.href='/summary'">
+                <img src="img_suredeposit/dash2.svg" alt="Summary" class="icons">
+                <span Class="List-Item-Name">Summary</span>
+            </li>
+            <li Class="List-Item account" onclick="location.href='/profile'">
+                <img src="img_suredeposit/user2.svg" alt="Account" class="icons">
+                <span Class="List-Item-Name">Account</span>
+            </li>
+        </div>
+    </section>
+
+
+</body>
+<script src="/js_suredeposit/ham.js"></script>
+
+<script>document.querySelector('.page-title').innerHTML = "Settings";
+</script>
+
+</html>

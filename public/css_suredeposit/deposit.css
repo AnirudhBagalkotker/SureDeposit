@@ -1,0 +1,185 @@
+.screen {
+    padding-top: 3.5vh;
+    position: relative;
+    /* height: 86vh !important; */
+    min-height: 86vh;
+}
+
+.input-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 3vh;
+    width: 100%;
+}
+
+#amount-input {
+    width: 100%;
+    text-align: center;
+    font-size: 60px;
+    padding: 8px;
+    background-color: var(--bgcol);
+    color: var(--color-primary);
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+    pointer-events: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    outline: none;
+}
+
+input::placeholder {
+    color: var(--grey2);
+}
+
+.quick-insert {
+    width: 95%;
+    margin: auto;
+}
+
+.quick-insert .btn {
+    margin-left: 15px;
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+.number-pad .qadd {
+    height: 2.5rem;
+    margin-bottom: 8px;
+}
+
+.number-pad {
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+    padding: 24px 12px;
+    padding-top: 2.5vh;
+    background-color: var(--bgcol);
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+.number-pad .row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 8px;
+}
+
+.number-pad .number-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--bgcol);
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 60px;
+    height: 60px;
+    margin-right: 24px;
+    margin-left: 24px;
+    font-size: 26px;
+    font-weight: bold;
+    color: var(--black);
+    transform: scale(1.1);
+    font-family: "Poppins", sans-serif;
+    transition: all 0.2s ease-in-out;
+}
+
+.number-pad .number-btn:focus {
+    transform: scale(0.85);
+    outline: none;
+    box-shadow: 0px 0px 5px var(--shadow);
+    background-color: var(--white);
+}
+
+.delete img {
+    height: 24px;
+}
+
+.clear {
+    font-size: 18px !important;
+}
+
+.number-pad .btn-box {
+    width: 100%;
+    margin-top: 1vh;
+}
+
+#cpay {
+    padding-top: 0vh !important;
+}
+
+#cpay .btn-box {
+    width: 80%;
+}
+
+#cpay .flex-row img {
+    height: 16px;
+    margin-right: 10px;
+    position: relative;
+    top: 4px
+}
+
+#payment_success .btn {
+    width: 65%;
+}
+
+#payment_success .hrstyle {
+    background-color: var(--grey2);
+}
+
+#payment_success .h-6 {
+    color: var(--black3);
+}
+
+#payment_success .h-6 {
+    text-align: left;
+    font-size: 5vw;
+}
+
+.min-amt {
+    width: 98%;
+    text-align: right;
+    position: relative;
+    bottom: 40px;
+    /* transform: scale(0.75); */
+    font-size: 1.35vh;
+}
+
+#cpay>h1 {
+    font-size: 4vh;
+}
+
+.withdrawBtn {
+    width: 80vw;
+    transform: scale(0.75);
+}
+
+.flex-row>.btn {
+    font-size: 16px;
+    transform: scale(0.85);
+}
+
+.flex-row {
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+#with_success {
+    min-height: 90vh;
+}
+
+#with_success .btn-box .btn {
+    width: 60vw;
+}

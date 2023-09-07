@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1, user-scalable=no">
+    <meta http-equiv=" X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="description"
+        content="Secure your future with a fixed deposit at SureDeposit - offering a world-class 18% return rate. Join today and build your wealth with confidence!">
+
+    <meta property="og:url" content="">
+    <meta property="og:type" content="application">
+    <meta property="og:title" content="SureDeposit | Secure FDs with the 'Highest Return' in the World!">
+    <meta property="og:description"
+        content="Secure your future with SureDeposit - the smart choice for high-yield fixed deposits!">
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+    <meta property="og:image" content="img_suredeposit/logo.png">
+
+    <title>SureDeposit | Sign in to your account</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img_suredeposit/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img_suredeposit/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img_suredeposit/favicon-16x16.png">
+    <link rel="manifest" href="img_suredeposit/site.webmanifest">
+    <link rel="stylesheet" href="/css_suredeposit/common.css">
+    <link rel="stylesheet" href="/css_suredeposit/signin.css">
+</head>
+
+<body>
+
+    <section class="hamburger-menu2 flex-row">
+        <div>
+            <a href="">
+                <img src="img_suredeposit/close.svg" alt="" class="icons2">
+            </a>
+        </div>
+        <div>
+            <span class="h-6 b color">Sign in &nbsp;&nbsp;&nbsp;&nbsp;</span>
+        </div>
+        <div></div>
+    </section>
+
+    <section class="screen">
+        <div class="flex-colunm signin-container">
+            <form id="signin" class="signin-box" name="signin" action="/auth/signin" method="POST">
+                <div class="fields">
+                    <label for="cEmail" class="field-name">Email</label>
+                    <input type="email" value="" class="field-value" id="cEmail" name="cEmail" required
+                        placeholder="Email">
+                </div>
+                <div class="fields">
+                    <label for="pass" class="field-name">Password</label>
+                    <div class="password-field">
+                        <input type="password" value="" class="field-value" id="pass" name="pass" required
+                            placeholder="Password">
+                        <button type="button" class="show-password-btn" onclick="togglePasswordVisibility()">
+                            <img src="img_suredeposit/eye.svg" alt="" class="show-password-icon">
+                        </button>
+                    </div>
+                </div>
+                <!-- <div class="flex-row margin-left-right">
+                    <a href="" class="linkbtn">Forgot password?</a>
+                </div> -->
+                <div class="flex item-center">
+                    <button type="submit" class="btn" id="signinBtn">Sign in</button>
+                </div>
+                <div class="error-box item-center">
+                    <p id="error-box" class="center"></p>
+                </div>
+            </form>
+            <div class="center signup-popup">
+                <span class="h-2">&nbsp;&nbsp; Don't have an account? <a href="/signup" class="linkbtn">Sign
+                        up</a></span>
+            </div>
+        </div>
+    </section>
+</body>
+<script src="/js_suredeposit/signin.js"></script>
+<script>
+    function togglePasswordVisibility() {
+        var passField = document.getElementById("pass");
+        var showBtn = document.querySelector(".show-password-btn");
+
+        if (passField.type === "password") {
+            passField.type = "text";
+        } else {
+            passField.type = "password";
+        }
+    }
+</script>
+
+</html>

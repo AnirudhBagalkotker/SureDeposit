@@ -1,0 +1,24 @@
+/* Navbar for Summary */
+
+.dash {
+    opacity: 1;
+    Transform: TranslateY(-10px);
+    Font-Weight: 900;
+}
+
+.screen {
+    padding: 30px 15px;
+}
+
+.summary h2 {
+    font-size: 9vw;
+    margin-bottom: 20px;
+}
+
+.summary table td {
+    padding: 2.5vh 10px;
+}
+
+.summary table td:first-child {
+    width: 59%;
+}

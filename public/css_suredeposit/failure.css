@@ -1,0 +1,19 @@
+#imgBox img {
+    width: 27.5vw;
+}
+
+#imgBox {
+    background-color: #FAE7F0;
+    width: 50vw;
+    height: 50vw;
+    border-radius: 50%;
+    margin-bottom: 5vh;
+}
+
+#payment_failed .btn {
+    width: 60%;
+}
+
+#payment_failed h2 {
+    color: var(--red);
+}

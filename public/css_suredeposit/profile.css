@@ -1,0 +1,93 @@
+/* Navbar for account */
+
+.Navbar .account {
+    opacity: 1;
+    Transform: TranslateY(-10px);
+    Font-Weight: 900;
+}
+
+.screen {
+    padding: 2.5vh 5vw;
+    position: relative;
+}
+
+.profile__name {
+    font-size: 7vw;
+    color: var(--black2);
+}
+
+.profile__info {
+    margin-bottom: 0.75vh;
+}
+
+.profile__item {
+    margin-bottom: 0.75vh;
+    margin-top: 0.75vh;
+}
+
+.profile__label {
+    font-size: 2.5vh;
+    color: var(--black2);
+}
+
+.profile__img {
+    width: 26.5vw;
+    height: 26.5vw;
+    border-radius: 50%;
+    border: 2px solid var(--grey2);
+    margin-bottom: 0;
+}
+
+.profile__img img {
+    width: 26.5vw;
+    height: auto;
+}
+
+.profile__value {
+    font-size: 2.15vh;
+    font-weight: 600;
+    color: var(--color-primary);
+}
+
+.profile__footer {
+    position: absolute;
+    bottom: 7.5%;
+}
+
+.profile__edit {
+    width: 90vw;
+}
+
+.profile__edit .btn {
+    width: 40%;
+    margin-bottom: 2.5vh;
+}
+
+#cEmail {
+    font-size: 3.6vw;
+}
+
+/* .editBtn {
+    width: 20vw !important;
+    margin-bottom: 0;
+    transform: scale(0.6);
+}
+
+.editBtnBox {
+    position: absolute;
+    top: 2px;
+    right: 15px;
+} */
+
+.gery-box-big {
+    margin-top: 0.75vh !important;
+    margin-bottom: 1.25vh !important;
+}
+
+.flex-row>.profile__item:first-child {
+    width: 70%;
+}
+
+.flex-row>.profile__item:last-child {
+    width: 30%;
+}

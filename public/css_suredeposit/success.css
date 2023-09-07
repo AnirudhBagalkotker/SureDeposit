@@ -1,0 +1,15 @@
+#imgBox img {
+    width: 40vw;
+}
+
+#imgBox {
+    background-color: var(--color-sec);
+    width: 50vw;
+    height: 50vw;
+    border-radius: 50%;
+    margin-bottom: 5vh;
+}
+
+#payment_success .btn {
+    width: 60%;
+}

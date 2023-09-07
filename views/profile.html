@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1, user-scalable=no">
+    <meta http-equiv=" X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <meta name="description"
+        content="Secure your future with a fixed deposit at SureDeposit - offering a world-class 18% return rate. Join today and build your wealth with confidence!">
+
+    <meta property="og:url" content="">
+    <meta property="og:type" content="application">
+    <meta property="og:title" content="SureDeposit | Secure FDs with the 'Highest Return' in the World!">
+    <meta property="og:description"
+        content="Secure your future with SureDeposit - the smart choice for high-yield fixed deposits!">
+    <meta http-equiv="ScreenOrientation" content="autoRotate:disabled">
+    <meta property="og:image" content="img_suredeposit/logo.png">
+
+    <title>SureDeposit | My Account</title>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="img_suredeposit/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img_suredeposit/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img_suredeposit/favicon-16x16.png">
+    <link rel="manifest" href="img_suredeposit/site.webmanifest">
+    <link rel="stylesheet" href="/css_suredeposit/common.css">
+    <link rel="stylesheet" href="/css_suredeposit/profile.css">
+
+</head>
+
+<body>
+
+    <section class="hamburger-menu flex-colunm">
+        <input id="menu__toggle" type="checkbox" />
+        <label class="menu__btn" for="menu__toggle">
+            <span></span>
+        </label>
+        <div class="flex item-center">
+            <h2 class="h-6 page-title color"></h2>
+        </div>
+        <ul class="menu__box flex-colunm">
+            <a class="btn btn-grey margin-left-right menu__item" href="/profile">My Account</a>
+            <li class="menu__item">
+                <a href="/deposit"><img src="img_suredeposit/add.svg" alt="" class="icons2">
+                    Deposit</a>
+            </li>
+            <li class="menu__item">
+                <a href="/withdraw"><img src="img_suredeposit/withdraw.png" alt="" class="icons2">
+                    Withdraw</a>
+            </li>
+            <!-- <li class="menu__item">
+				<a href="/history"><img src="img_suredeposit/history.svg" alt="" class="icons2">
+					History</a>
+			</li> -->
+            <li class="menu__item">
+                <a href="/help"><img src="img_suredeposit/help.svg" alt="" class="icons2">
+                    Help & Support</a>
+            </li>
+            <li class="menu__item">
+                <a href="/rewards"><img src="img_suredeposit/gift.svg" alt="" class="icons2">
+                    Rewards</a>
+            </li>
+            <li class="menu__item">
+                <a href="/settings"><img src="img_suredeposit/settings.svg" alt="" class="icons2">
+                    Settings</a>
+            </li>
+            <a class="btn btn-grey margin-left-right menu__item sign-out" id="signout" href="/auth/signout">Sign out</a>
+        </ul>
+    </section>
+
+    <section class="screen">
+        <div class="profile">
+            <div class="profile__header flex-colunm item-center">
+                <div class="profile__img flex item-center"></div>
+                <div class="profile__name b" id="cName"></div>
+            </div>
+            <div class="profile__info">
+                <div class="gery-box-big">
+                    <div class="flex-row">
+                        <div class="profile__item">
+                            <div class="profile__label">Phone number</div>
+                            <div class="profile__value" id="cPhone"></div>
+                        </div>
+                        <div class="profile__item">
+                            <div class="profile__label">Gender</div>
+                            <div class="profile__value" id="cGender"></div>
+                        </div>
+                    </div>
+                    <div class="profile__item">
+                        <div class="profile__label">Email</div>
+                        <div class="profile__value" id="cEmail"></div>
+                    </div>
+                </div>
+                <div class="gery-box-big">
+                    <div class="profile__item">
+                        <div class="profile__label b item-center center">Withdrawal Account</div>
+                    </div>
+                    <div class="flex-colunm item-center hidden" id="nulbox">
+                        <div class="profile__label center" id="nul">Add your Bank account <br> or UPI ID for Withdrawals
+                        </div>
+                        <a href="/editbank" class="profile__value linkbtn margin-top">ADD WITHDRAWAL ACCOUNT</a>
+                    </div>
+                    <div class="profile__item hidden" id="bnameBox">
+                        <div class="profile__label">Bank Name</div>
+                        <div class="bank-name profile__value" id="bname"></div>
+                    </div>
+                    <div class="profile__item hidden" id="accnoBox">
+                        <div class="profile__label">Account Number</div>
+                        <div class="bank-account profile__value" id="accno"></div>
+                    </div>
+                    <div class="profile__item hidden" id="upiidBox">
+                        <div class="profile__label">UPI ID</div>
+                        <div class="bank-account profile__value" id="upiid"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="profile__footer flex-colunm">
+            <div class="profile__edit flex item-space">
+                <a href="/editprofile" class="btn">Edit</a>
+                <a href="/auth/signout" class="btn btn-grey sign-out">Sign
+                    out</a>
+            </div>
+        </div>
+
+    </section>
+
+    <section id="nav">
+        <div Class="Navbar">
+            <li Class="List-Item home" onclick="location.href='/home'">
+                <img src="img_suredeposit/home2.svg" alt="Home" class="icons">
+                <span Class="List-Item-Name">Home</span>
+            </li>
+            <li Class="List-Item dash" onclick="location.href='/summary'">
+                <img src="img_suredeposit/dash2.svg" alt="Summary" class="icons">
+                <span Class="List-Item-Name">Summary</span>
+            </li>
+            <li Class="List-Item account" onclick="location.href='/profile'">
+                <img src="img_suredeposit/user2.svg" alt="Account" class="icons">
+                <span Class="List-Item-Name">Account</span>
+            </li>
+        </div>
+    </section>
+
+
+</body>
+<script src="/js_suredeposit/profile.js"></script>
+<script src="/js_suredeposit/ham.js"></script>
+
+<script>document.querySelector('.page-title').innerHTML = "My Account";
+</script>
+
+</html>

@@ -1,0 +1,70 @@
+.screen {
+    padding: 30px 15px;
+}
+
+#helps h2 {
+    font-size: 9vw;
+    margin-bottom: 0.5vh;
+}
+
+#helps h3 {
+    font-size: 6.5vw;
+}
+
+table td:first-child {
+    width: 90%;
+    color: var(--black3);
+}
+
+.faq-content>.flex-colunm  {
+    width: 80vw;
+    position: relative;
+    left: 5vw;
+}
+
+table td:last-child img {
+    position: relative;
+    top: 2px;
+}
+
+#helps .btn,
+#viweTickets .btn,
+#addTickets .btn {
+    margin-bottom: 0.5vh;
+    margin-top: 1vh;
+    transform: scale(0.9);
+    transition: all 0.3s ease;
+}
+
+#helps .btn:active {
+    transform: scale(0.8);
+}
+
+#helps table tr:nth-child(3) td:after {
+    width: 0;
+    height: 0;
+}
+
+#viweTickets #ticketBox {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 10vh;
+}
+
+#viweTickets #ticketBox .ticket-box {
+    align-items: flex-start;
+    text-align: left;
+    margin: 2vh auto;
+}
+
+#viweTickets #ticketBox .ticket-box .flex-row {
+    gap: 30%;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+#viweTickets #ticketBox .ticket-box .flex-row .text {
+    font-size: 12px;
+}

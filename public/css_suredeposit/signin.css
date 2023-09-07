@@ -1,0 +1,19 @@
+.signin-container {
+    position: relative;
+    height: 93vh;
+}
+
+.signin-box {
+    padding: 2vh 2vw;
+}
+
+.signup-popup {
+    position: absolute;
+    bottom: 10%;
+    display: block;
+    width: 95%;
+}
+
+#signinBtn {
+    margin-top: 3.5vh;
+}

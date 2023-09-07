@@ -1,0 +1,61 @@
+/* h1 {
+    font-size: 24px !important;
+    font-weight: 700;
+    padding-left: 15px;
+}
+
+#settings_section {
+    margin-top: 0.5vh;
+    margin-bottom: 2vh;
+}
+
+#settings_section h1 {
+    margin-bottom: 0.5vh;
+}
+
+.setting {
+    display: flex;
+    padding: 4px;
+    margin: 6px;
+    padding-left: 17.5px;
+    padding-right: 10px;
+    font-size: 20px;
+    justify-content: space-between;
+    align-items: center;
+} */
+
+
+.screen {
+    padding: 30px 15px;
+}
+
+
+#settings_section h2 {
+    font-size: 9vw;
+    margin-bottom: 20px;
+}
+
+table td:first-child {
+    width: 90%;
+    color: var(--black3);
+}
+
+table td:last-child img {
+    position: relative;
+    top: 2px;
+}
+
+#ir .flex-row {
+    padding-left: 10px;
+    padding-top: 5px;
+}
+
+#ir .h-4 {
+    color: var(--grey2);
+    font-size: 4vw;
+    margin-right: 5vw;
+}
+
+.hidden {
+    display: none;
+}
