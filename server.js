@@ -156,14 +156,42 @@ app.post('/auth/signin', async (req, res) => {
     );
 });
 
-
-
 //routes
 
 //landing page
 app.get('/', (req, res) => {
     res.status(200).sendFile(path.join(staticPath, "./landingPage.html"));
     // res.status(200).render('landingPage');
+})
+
+//about us page
+app.get('/aboutus', (req, res) => {
+    res.status(200).sendFile(path.join(staticPath, "./aboutus.html"));
+    // res.status(200).render('aboutus');
+})
+
+//contact us page
+app.get('/contact', (req, res) => {
+    res.status(200).sendFile(path.join(staticPath, "./contactus.html"));
+    // res.status(200).render('contactus');
+})
+
+//tnc page
+app.get('/tnc', (req, res) => {
+    res.status(200).sendFile(path.join(staticPath, "./tnc.html"));
+    // res.status(200).render('tnc');
+})
+
+//privacyPolicy page
+app.get('/privacy-policy', (req, res) => {
+    res.status(200).sendFile(path.join(staticPath, "./privacyPolicy.html"));
+    // res.status(200).render('privacyPolicy');
+})
+
+//refundPolicy page
+app.get('/refund-policy', (req, res) => {
+    res.status(200).sendFile(path.join(staticPath, "./refundPolicy.html"));
+    // res.status(200).render('refundPolicy');
 })
 
 //signup screen

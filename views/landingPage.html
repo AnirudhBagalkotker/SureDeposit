@@ -11,12 +11,12 @@
 
 	<meta property="og:url" content="www.suredeposit.in">
 	<meta property="og:type" content="website">
-	<meta property="og:title" content="SureDeposit | The World's Highest Return on Investments!">
+	<meta property="og:title" content="SureDeposit | The World's Highest Return on Investments! | suredeposit.in">
 	<meta property="og:description"
 		content="Secure your future with SureDeposit - offering a world-class 15% return rate!">
 	<meta property="og:image" content="img_landingPage/logo_favicon.png">
 
-	<title>SureDeposit | The World's Highest Guaranteed Returns!</title>
+	<title>SureDeposit | The World's Highest Guaranteed Returns! | suredeposit.in</title>
 
 	<link rel="apple-touch-icon" sizes="150x150" href="img_landingPage/logo_favicon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="img_landingPage/logo_favicon.png">
@@ -34,25 +34,14 @@
 </head>
 
 <body>
-
-	<!-- <section id="hero" class="scroll">
-		<img_landingPage src="img/earth-1756274.jpg" alt="" id="bgImg">
-		<img src="img/logo.png" alt="" id="logo">
-		<div id="heroContent" class="flex-colunm item-space">
-			<h1 class="main-heading center">The World's Highest Guaranteed Returns!</h1>
-			<div id="subheading" class="flex-colunm item-center">
-				<h3 class="sub-heading center">Start investing for just as low as ₹1000!</h3>
-				<h3 class="sub-heading center">invest or borrow at 15% Interest rate!</h3>
-			</div>
-			<a href="https://play.google.com/store/apps/details?id=com.Pageturners_tech.sure_deposit_AIA_store"
-				class="btn">Invest Now</a>
-		</div>
-	</section> -->
-
 	<section id="navbar" class="scroll">
-		<img src="img_landingPage/logo.png" alt="" id="logo">
-		<a href="https://play.google.com/store/apps/details?id=com.Pageturners_tech.sure_deposit_AIA_store"><img
-				src="img_landingPage/playstore.png" alt="" id="playBtnNav" class="play"></a>
+		<img src="img_landingPage/logo.png" alt="Logo" id="logo" onclick="location.href = '/'" class="cur-point">
+		<div id="nav-links" class="flex-row">
+			<a class="linkbtn active" href="/">Home</a>
+			<a class="linkbtn" href="/aboutus">About Us</a>
+			<a class="linkbtn" href="/contact">Contact Us</a>
+			<a class="linkbtn" href="/signin">Login</a>
+		</div>
 	</section>
 	<section id="hero" class="scroll">
 		<div class="hero-grid">
@@ -63,8 +52,7 @@
 					<h3 class="sub-heading ">Invest or borrow at 15% Interest!</h3>
 				</div>
 				<div class="flex-row btns item-space">
-					<a href="https://play.google.com/store/apps/details?id=com.Pageturners_tech.sure_deposit_AIA_store"
-						class="btn">Invest Now</a>
+					<button class="btn" onclick="register()">Invest Now</button>
 					<a href="https://play.google.com/store/apps/details?id=com.Pageturners_tech.sure_deposit_AIA_store"><img
 							src="img_landingPage/playstore.png" alt="" id="playBtnHero" class="play"></a>
 				</div>
@@ -146,7 +134,7 @@
 			</div>
 			<div class="flex-colunm" id="benefitMain">
 				<h2 class="benefit-title headers headings">You get a ton of features and benefits too!</h2>
-				<span class="benefit-desc text">Apart from the Basic features other Investment providers
+				<span class="benefit-desc text2">Apart from the Basic features other Investment providers
 					give, we offer you many extra benefits which are quite exciting.
 				</span>
 				<ul class="benefit-list flex-colunm margin-left-right margin-top-bottom">
@@ -167,7 +155,7 @@
 		<div class="flex-row item-center" id="gsBox">
 			<div class="flex-colunm padding-top-bottom" id="gsMain">
 				<h2 class="gs-title headers headings">So how to Get Started?</h2>
-				<span class="benefit-desc text">Investing with us is simple & hassle-free: with no paper
+				<span class="benefit-desc text2">Investing with us is simple & hassle-free: with no paper
 					works.</span>
 				<div class="flex-colunm item-center" id="steps">
 					<div class="flex-colunm item-space step-item">
@@ -202,7 +190,7 @@
 	<section id="faq" class="scroll">
 		<div id="faqBox" class="flex-colunm">
 			<h2 class="faqs-title headers main-heading center">FAQs</h2>
-			<span class="faq-desc Bodytext text">Got a question? We've got you covered! Check out some of the most
+			<span class="faq-desc Bodytext text2">Got a question? We've got you covered! Check out some of the most
 				commonly asked
 				questions about our Investments. Feel free to contact us for any other queries, we'll be happy to
 				assist you.
@@ -252,7 +240,7 @@
 		<div id="tBox" class="flex-colunm">
 			<h2 class="scroll faqs-title headers main-heading center">Testimonials</h2>
 			<div class="scroll padding-12">
-				<span class=" faq-desc text">Our satisfied customers speak for themselves. Look what they
+				<span class=" faq-desc text2">Our satisfied customers speak for themselves. Look what they
 					have to
 					say about their experience with SureDeposit and why they trust us to provide the highest returns in
 					the
@@ -327,13 +315,39 @@
 
 	<footer class="flex-colunm">
 		<div class="padding-15 flex-row footer">
-			<img src="img_landingPage/logo_favicon.png" alt="" id="favicon" loading="lazy">
 			<div class="flex-colunm menu">
-				<span class="sub-heading color menu-header">Help and Support</span>
-				<span class="bullets">contact@suredeposit.in</span>
-				<span class="bullets">+91 9484480809</span>
+				<img src="img_landingPage/logo_favicon.png" alt="" id="favicon" loading="lazy">
 			</div>
-			<div class="flex-row item-space app-links">
+			<div class="flex-colunm menu">
+				<span class="sub-heading color menu-header">Website</span>
+				<a class="linkbtn" href="/home">Dashboard</a>
+				<a class="linkbtn" href="/signup">Signup</a>
+				<a class="linkbtn" href="/signin">Login</a>
+			</div>
+			<div class="flex-colunm menu">
+				<span class="sub-heading color menu-header">Help Topics</span>
+				<a class="linkbtn" href="/aboutus">About Us</a>
+				<a class="linkbtn" href="/contact">Contact Us</a>
+				<a class="linkbtn" href="/faq">FAQs</a>
+			</div>
+		</div>
+		<div class="padding-15 flex-row footer">
+			<div class="flex-colunm menu">
+				<span class="sub-heading color menu-header">Policies</span>
+				<a class="linkbtn" href="/tnc">Terms & Conditions</a>
+				<a class="linkbtn" href="/privacy-policy">Privacy Policy</a>
+			</div>
+			<div class="flex-colunm menu">
+				<span class="sub-heading color menu-header">Contact Us</span>
+				<span class="bullets"><a target="_blank" rel="noopener noreferrer" class="linkbtn"
+						href="mailto:contact@unitybooks.in">contact@suredeposit.in</a></span>
+				<span class="bullets">
+					<a target="_blank" rel="noopener noreferrer" class="linkbtn"
+						href="https://api.whatsapp.com/message/HJFV7CZRCD7BG1?autoload=1&amp;app_absent=0">
+						9484480809</a>
+				</span>
+			</div>
+			<div class="flex-colunm menu app-links">
 				<a href="https://play.google.com/store/apps/details?id=com.Pageturners_tech.sure_deposit_AIA_store"><img
 						src="img_landingPage/playstore.png" alt="" id="playBtn" loading="lazy" class="play"></a>
 			</div>

@@ -5,26 +5,16 @@ body {
 	padding: 0;
 }
 
-a,
-img {
-	-webkit-touch-callout: none;
-	-webkit-user-select: none;
-	-khtml-user-select: none;
-	-moz-user-select: none;
-	-ms-user-select: none;
-	user-select: none;
-}
-
 ul {
 	display: flex;
 }
 
-ul li {
+ul>li {
 	list-style: none;
 	padding: 6px 0;
 }
 
-li::before {
+ul>li::before {
 	content: '';
 	display: inline-flex;
 	align-items: flex-end;
@@ -35,6 +25,16 @@ li::before {
 	background-image: url("/img_landingPage/check.svg");
 	position: relative;
 	top: 3px;
+}
+
+ol {
+	display: flex;
+	gap: 12px;
+	padding: 18px;
+}
+
+ol>li {
+	margin-left: 36px;
 }
 
 a {
@@ -83,13 +83,39 @@ button,
 }
 
 .bullets {
-	font-family: 'Roboto', sans-serif;
+	font-family: 'Poppins', sans-serif;
 	font-style: normal;
 	font-weight: 600;
 	font-size: 18px;
-	line-height: 28px;
+	line-height: 24px;
 	letter-spacing: 0.75px;
 	color: var(--color-sec);
+}
+
+.bullets2 {
+	font-family: 'Poppins', sans-serif;
+	font-style: normal;
+	font-weight: 600;
+	font-size: 22px;
+	line-height: 32px;
+	letter-spacing: 0.75px;
+	color: var(--color-sec);
+}
+
+.linkbtn {
+	font-family: 'Poppins', sans-serif;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 30px;
+	letter-spacing: 0.75px;
+	color: var(--color-sec);
+	transition: all 0.35s ease;
+}
+
+.linkbtn:hover,
+#nav-links>.active {
+	color: var(--color-primary);
+	text-decoration: underline;
 }
 
 .text {
@@ -101,10 +127,33 @@ button,
 	color: var(--color-sec);
 }
 
+.text2 {
+	font-family: 'Roboto', sans-serif;
+	font-style: normal;
+	font-weight: 400;
+	font-size: 22px;
+	line-height: 28px;
+	color: var(--color-sec);
+	padding-top: 1vh;
+	padding-bottom: 1vh;
+}
+
+.color {
+	color: var(--color-primary);
+}
+
+.color-sec {
+	color: var(--color-sec);
+}
+
 /* Dimensions */
 
 .w-full {
 	width: 100%;
+}
+
+.w-half {
+	width: 50%;
 }
 
 .h-full {
@@ -120,7 +169,7 @@ button,
 }
 
 .padding-12 {
-	padding: 1% 15%;
+	padding: 2.5% 15%;
 }
 
 .padding-8 {
@@ -128,7 +177,7 @@ button,
 }
 
 .padding-top-bottom {
-	padding: 5vh 0;
+	padding: 4.5vh 0;
 }
 
 .margin-top-bottom {
@@ -158,13 +207,13 @@ button,
 	height: auto;
 }
 
-.btn:hover:before {
-	width: 100%;
-}
+/* Btns and Icons */
 
-.btn:active:before {
-	width: 150%;
-	left: -25%;
+.btn,
+.btn-grey {
+	width: 15vw;
+	transform: scale(1.1);
+	margin-top: 1vh;
 }
 
 .btn-grey {
@@ -179,12 +228,34 @@ button,
 	transition: all 0.35s ease;
 }
 
+.btn:hover,
+.btn-grey:hover {
+	box-shadow: 0 0 20px var(--color-primary);
+}
+
+.btn:hover:before {
+	width: 100%;
+}
+
+.btn:active,
+.btn-grey:active {
+	transform: scale(0.9);
+	box-shadow: 0 0 25px var(--color-primary);
+}
+
+.btn:active:before {
+	width: 150%;
+	left: -25%;
+}
+
 .icons2 {
 	height: 20px;
 	width: auto;
 	padding-right: 8px;
 	display: inline-block;
 }
+
+/* Scroll Viewing */
 
 .scroll {
 	opacity: 0;
@@ -199,14 +270,115 @@ button,
 	transform: translateY(0);
 }
 
-.color {
+/* Navbar */
+
+#navbar {
+	width: 100%;
+	height: 12vh;
+	padding: 0 5%;
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+}
+
+#playBtnNav {
+	display: none;
+}
+
+#logo {
+	position: absolute;
+	width: 180px;
+	left: 7.5vw;
+	top: 0px;
+	mix-blend-mode: normal;
+}
+
+.play {
+	transition: box-shadow 0.3s ease;
+}
+
+.play:active {
+	box-shadow: 0 0 25px rgba(255, 255, 255, 0.5);
+}
+
+.play:hover {
+	box-shadow: 0 0 20px rgba(255, 255, 255, 0.25);
+}
+
+#nav-links {
+	align-items: center;
+	justify-content: space-evenly;
+	gap: 2.5vw;
+	align-self: stretch;
+}
+
+/* Footer */
+
+footer {
+	background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.225) 100%);
+}
+
+.footer {
+	align-items: center;
+	justify-content: flex-end;
+	margin: 3vh 0;
+	gap: 25px;
+}
+
+#favicon {
+	height: 12vh;
+}
+
+.menu {
+	align-items: flex-start;
+	justify-content: center;
+	gap: 4px;
+	width: 27.5%;
+}
+
+.menu-header {
+	margin-bottom: 5px;
+}
+
+.footer .sub-heading {
 	color: var(--color-primary);
 }
 
-.color-sec {
-	color: var(--color-sec);
+.app-links {
+	gap: 7vw;
 }
 
-footer {
+#playBtn,
+#playBtnHero {
+	margin-top: 5px;
+	height: 8vh;
+}
+
+#qr {
+	margin-top: 5px;
+	height: 25vh;
+	border-radius: 6px;
+}
+
+#heart {
+	width: 24px;
+	position: relative;
+	top: 4px;
+}
+
+#qrAnimation {
+	mix-blend-mode: darken;
+	margin-left: 5px;
+}
+
+.btn-grey {
+	width: 17vw;
+}
+
+#tnc {
+	margin-bottom: 10px;
+}
+
+footer .sto {
 	margin-bottom: 10px;
 }
