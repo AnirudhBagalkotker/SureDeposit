@@ -11,54 +11,40 @@ const db = mysql.createConnection({
 	database: process.env.DATABASE,
 });
 
-express().use(bodyParser.urlencoded({
-	extended: true
-}));
+express().use(bodyParser.urlencoded({ extended: true }));
 
 express().use(bodyParser.json());
 
 exports.deposit = async (req, res) => {
-	// console.log("first2");
 	console.log(req.body);
-	let amount = req.body.amt;
-	const uid = await getUID(req, res);
+	const amount = req.body.amt;
+	const uid = req.body.uid;
 	let Tdate = new Date().toISOString().slice(0, 19).replace('T', ' ');
-	db.query("insert into DEPOSIT set ?",
-		{ UID: uid, AMT: amount, DTDATE: Tdate, SUCCESS: 1 },
-		(error, result) => {
-			if (error) {
-				console.log(error);
-			} else {
-				console.log(result);
-				const ctid = result.insertId;
-				db.query('UPDATE ACCOUNT SET CINV = CINV + ?, CBAL = CBAL + ?, TINV = TINV + ?, CINVDATE = ?, CTID = ? where UID = ?', [amount, amount, amount, Tdate, ctid, uid], (errors, results) => {
-					if (error) {
-						console.error(errors);
-					} else {
-						console.log(results);
-						db.query('select * from ACCOUNT where UID = ?', [uid], (err, resu) => {
-							if (err) {
-								console.log(err);
+	db.query("insert into DEPOSIT set ?", { UID: uid, AMT: amount, DTDATE: Tdate, SUCCESS: 1 }, (error, result) => {
+		if (error) console.error(error);
+		else {
+			// console.log(result);
+			const ctid = result.insertId;
+			db.query('UPDATE ACCOUNT SET CINV = CINV + ?, CBAL = CBAL + ?, TINV = TINV + ?, CINVDATE = ?, CTID = ? where UID = ?', [amount, amount, amount, Tdate, ctid, uid], (errors, results) => {
+				if (error) console.error(errors);
+				else {
+					console.log(results);
+					db.query('select * from ACCOUNT where UID = ?', [uid], (err, resu) => {
+						if (err) console.error(err);
+						else {
+							// console.log(resu);
+							if (resu[0].FINVDATE == null) {
+								db.query('UPDATE ACCOUNT SET FINVDATE = ? where UID = ?', [Tdate, uid], (err, resu) => {
+									if (err) console.error(err);
+									else res.json({ success: true });
+								})
 							}
-							else {
-								console.log(resu);
-								if (resu[0].FINVDATE == null) {
-									db.query('UPDATE ACCOUNT SET FINVDATE = ? where UID = ?', [Tdate, uid], (err, resu) => {
-										if (err) {
-											console.log(err);
-										}
-										else {
-											console.log(resu);
-										}
-									})
-								}
-							}
-						})
-					}
-				});
-			}
+						}
+					})
+				}
+			});
 		}
-	)
+	})
 }
 
 exports.withdraw = async (req, res) => {
@@ -68,34 +54,31 @@ exports.withdraw = async (req, res) => {
 	let wtype = req.body.wtype;
 	let uid = req.body.uid;
 	let Tdate = new Date().toISOString().slice(0, 19).replace('T', ' ');
-	db.query("insert into WITHDRAW set ?",
-		{ UID: uid, AMT: amount, WRDATE: Tdate, WTYPE: wtype },
-		(error, result) => {
-			if (error) {
-				console.log(error);
-			} else {
-				console.log(result);
-				if (wtype == 1) {
-					db.query('UPDATE ACCOUNT SET CINT = CINT - ?, CBAL = CBAL - ? where UID = ?', [oamt, oamt, uid], (errors, results) => {
-						if (error) {
-							console.error(errors);
-						} else {
-							console.log(results);
-						}
-					});
-				}
-				else {
-					db.query('UPDATE ACCOUNT SET CINV = CINV - ?, CBAL = CBAL - ? where UID = ?', [oamt, oamt, uid], (errors, results) => {
-						if (error) {
-							console.error(errors);
-						} else {
-							console.log(results);
-						}
-					});
-				}
+	db.query("insert into WITHDRAW set ?", { UID: uid, AMT: amount, WRDATE: Tdate, WTYPE: wtype }, (error, result) => {
+		if (error) {
+			console.log(error);
+		} else {
+			console.log(result);
+			if (wtype == 1) {
+				db.query('UPDATE ACCOUNT SET CINT = CINT - ?, CBAL = CBAL - ? where UID = ?', [oamt, oamt, uid], (errors, results) => {
+					if (error) {
+						console.error(errors);
+					} else {
+						console.log(results);
+					}
+				});
+			}
+			else {
+				db.query('UPDATE ACCOUNT SET CINV = CINV - ?, CBAL = CBAL - ? where UID = ?', [oamt, oamt, uid], (errors, results) => {
+					if (error) {
+						console.error(errors);
+					} else {
+						console.log(results);
+					}
+				});
 			}
 		}
-	)
+	})
 }
 
 exports.reinvest = async (req, res) => {

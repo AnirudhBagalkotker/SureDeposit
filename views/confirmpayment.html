@@ -25,7 +25,7 @@
     <link rel="manifest" href="img_suredeposit/site.webmanifest">
     <link rel="stylesheet" href="/css_suredeposit/common.css">
     <link rel="stylesheet" href="/css_suredeposit/deposit.css">
-    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+    <!-- <script src="https://checkout.razorpay.com/v1/checkout.js"></script> -->
 </head>
 
 <body>
@@ -68,7 +68,7 @@
     </section>
 
     <section class="screen flex-colunm item-center padding" id="cpay">
-        <h1 class="b color margin-bottom">Confirm Deposit Amount</h1>
+        <h1 class="b color margin-bottom center">Confirm Deposit Amount</h1>
         <input type="text" id="amount-input" name="amount-input" class="margin-top margin-bottom">
         <div class="gery-box-big margin-bottom margin-top center">
             <div class="flex-row center">
@@ -78,7 +78,7 @@
             <span class="h-6 b">via Razorpay</span>
         </div>
         <div class="flex-colunm item-center btn-box margin-top">
-            <a class="btn" id="pay" onclick="paynow()">Proceed to Pay </a>
+            <a class="btn" id="pay" onclick="payNow()">Proceed to Pay </a>
         </div>
         <div class="flex-colunm item-center btn-box margin-top">
             <a class="btn btn-grey" href="/deposit">Go Back</a>
@@ -109,81 +109,82 @@
     var amt = localStorage.getItem("amt");
     var amttxt = "₹ " + amt;
     document.querySelector('#amount-input').value = amttxt;
-    async function paynow() {
-        let response = await fetch('/orders', {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify({
-                amount: amt,
-            })
-        })
+    // async function payNow() {
+    //     let response = await fetch('/orders', {
+    //         method: "POST",
+    //         headers: {
+    //             "Content-Type": "application/json"
+    //         },
+    //         body: JSON.stringify({
+    //             amount: amt,
+    //         })
+    //     })
 
-        let orderData = await response.json();
+    //     let orderData = await response.json();
 
-        fetch('/razorpay/pay')
-            .then(response => response.json())
-            .then(data => {
-                const name = data.name;
-                const phone = data.phone;
-                const email = data.email;
+    //     fetch('/razorpay/pay')
+    //         .then(response => response.json())
+    //         .then(data => {
+    //             const name = data.name;
+    //             const phone = data.phone;
+    //             const email = data.email;
 
-                var options = {
-                    "key": "rzp_live_uQGjObim82lWnp",
-                    "amount": amt * 100,
-                    "currency": "INR",
-                    "order_id": orderData.id,
-                    "name": "SureDeposit",
-                    "description": "Deposit",
-                    "image": "img_suredeposit/logo_favicon.png",
-                    "handler": function (response) {
-                        // alert(response.razorpay_payment_id);
-                        // alert(response.razorpay_order_id);
-                        // alert(response.razorpay_signature)
-                        if (typeof response.razorpay_payment_id == 'undefined' || response.razorpay_payment_id < 1) {
-                            location.href = '/failure';
-                        } else {
-                            var inv = parseInt(localStorage.getItem("inv"));
-                            var bal = parseInt(localStorage.getItem("bal"));
-                            // console.log("first");
-                            async function paymentSuccess() {
-                                let responses = await fetch('/setData/deposit', {
-                                    method: "POST",
-                                    headers: {
-                                        "Content-Type": "application/json"
-                                    },
-                                    body: JSON.stringify({
-                                        amt: amt,
-                                    })
-                                })
+    //             var options = {
+    //                 "key": "rzp_live_uQGjObim82lWnp",
+    //                 "amount": amt * 100,
+    //                 "currency": "INR",
+    //                 "order_id": orderData.id,
+    //                 "name": "SureDeposit",
+    //                 "description": "Deposit",
+    //                 "image": "img_suredeposit/logo_favicon.png",
+    //                 "handler": function (response) {
+    //                     // alert(response.razorpay_payment_id);
+    //                     // alert(response.razorpay_order_id);
+    //                     // alert(response.razorpay_signature)
+    //                     if (typeof response.razorpay_payment_id == 'undefined' || response.razorpay_payment_id < 1) {
+    //                         location.href = '/failure';
+    //                     } else {
+    //                         var inv = parseInt(localStorage.getItem("inv"));
+    //                         var bal = parseInt(localStorage.getItem("bal"));
+    //                         // console.log("first");
+    //                         async function paymentSuccess() {
+    //                             let responses = await fetch('/setData/deposit', {
+    //                                 method: "POST",
+    //                                 headers: {
+    //                                     "Content-Type": "application/json"
+    //                                 },
+    //                                 body: JSON.stringify({
+    //                                     amt: amt,
+    //                                 })
+    //                             })
 
-                                let payResponse = await responses.json();
-                                // console.log(payResponse);
-                            }
-                            paymentSuccess();
-                            bal += parseInt(amt);
-                            inv += parseInt(amt);
-                            localStorage.setItem("bal", bal);
-                            localStorage.setItem("inv", inv);
-                            localStorage.removeItem("amt");
-                            location.href = '/success';
-                        }
-                    },
-                    "prefill": {
-                        "name": name,
-                        "email": email,
-                        "contact": phone
-                    },
-                    "theme": {
-                        "color": "#0062F5"
-                    }
-                };
-                var rzp1 = new Razorpay(options);
-                rzp1.open();
-            })
-            .catch(error => console.error(error));
-    }
+    //                             let payResponse = await responses.json();
+    //                             // console.log(payResponse);
+    //                         }
+    //                         paymentSuccess();
+    //                         bal += parseInt(amt);
+    //                         inv += parseInt(amt);
+    //                         localStorage.setItem("bal", bal);
+    //                         localStorage.setItem("inv", inv);
+    //                         localStorage.removeItem("amt");
+    //                         location.href = '/success';
+    //                     }
+    //                 },
+    //                 "prefill": {
+    //                     "name": name,
+    //                     "email": email,
+    //                     "contact": phone
+    //                 },
+    //                 "theme": {
+    //                     "color": "#0062F5"
+    //                 }
+    //             };
+    //             var rzp1 = new Razorpay(options);
+    //             rzp1.open();
+    //         })
+    //         .catch(error => console.error(error));
+    // }
 </script>
+<script src="/js_suredeposit/payment.js"></script>
 
 </html>

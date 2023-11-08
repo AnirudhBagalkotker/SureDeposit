@@ -10,6 +10,7 @@ const { promisify } = require("util");
 const mysql = require('mysql');
 const Razorpay = require('razorpay');
 const bodyParser = require("body-parser");
+const nodeFetch = require('node-fetch');
 
 //initializing express.js
 const app = express();
@@ -311,25 +312,14 @@ app.get('/addaadhar', (req, res) => {
 
 //failure screen
 app.get('/failure', (req, res) => {
-    if (getUID(req, res)) {
-        res.status(200).sendFile(path.join(staticPath, "./failure.html"));
-        // res.status(200).render('failure');   
-    }
-    else {
-        res.status(200).redirect("/signup");
-    }
+    res.status(200).sendFile(path.join(staticPath, "./failure.html"));
+    // res.status(200).render('failure');   
 });
 
 //success screen
 app.get('/success', (req, res) => {
-    if (getUID(req, res)) {
-        res.status(200).sendFile(path.join(staticPath, "./success.html"));
-        // res.status(200).render('success');        
-    }
-    else {
-        res.status(200).redirect("/signup");
-    }
-
+    res.status(200).sendFile(path.join(staticPath, "./success.html"));
+    // res.status(200).render('success');        
 });
 
 //deposit screen
@@ -342,7 +332,6 @@ app.get('/deposit', (req, res) => {
     else {
         res.status(200).redirect("/signup");
     }
-
 });
 
 //confirm payment screen
@@ -530,25 +519,94 @@ app.post('/orders', async (req, res) => {
     })
 })
 
-app.get('/razorpay/pay', async (req, res) => {
+// app.get('/razorpay/pay', async (req, res) => {
+//     try {
+//         const uid = await getUID(req, res);
+//         db.query('SELECT NAME, PHONE, EMAIL FROM USERS WHERE UID = ?', [uid], async (error, result) => {
+//             try {
+//                 const name = result[0].NAME;
+//                 const phone = result[0].PHONE;
+//                 const email = result[0].EMAIL;
+//                 res.json({ name, phone, email });
+
+//             } catch (err) {
+//                 console.error(err);
+//                 res.status(500).json({ message: 'Internal server error' });
+//             }
+//         });
+//     } catch (error) {
+//         console.log(error);
+//         res.status(401).json({ message: 'Unauthorized' });
+//     }
+// });
+
+app.post('/api/initiatePayment', async (req, res) => {
+    const key = process.env.UPI_API_KEY;
+    const amount = req.body.amount;
+    const redirect_url = "https://suredeposit.in/success";
+    const udf1 = "UDF1";
+    const udf2 = "UDF2";
+    const udf3 = "UDF3";
     try {
         const uid = await getUID(req, res);
+        const p_info = `${uid}-SureDeposit Investment of Rs.${amount}`;
         db.query('SELECT NAME, PHONE, EMAIL FROM USERS WHERE UID = ?', [uid], async (error, result) => {
             try {
-                const name = result[0].NAME;
-                const phone = result[0].PHONE;
-                const email = result[0].EMAIL;
-                res.json({ name, phone, email });
-
+                const customer_name = result[0].NAME;
+                const customer_mobile = result[0].PHONE + "";
+                const customer_email = result[0].EMAIL;
+                db.query('SELECT ID FROM CLIENT_TXN_ID', async (error, id) => {
+                    try {
+                        const clientID = id[0].ID + 1;
+                        const client_txn_id = clientID + "";
+                        db.query('UPDATE CLIENT_TXN_ID SET ID = ?', [client_txn_id]);
+                        try {
+                            const response = await nodeFetch('https://api.ekqr.in/api/create_order', {
+                                method: 'POST',
+                                headers: { 'Content-Type': 'application/json', },
+                                body: JSON.stringify({ key, client_txn_id, amount, p_info, customer_name, customer_email, customer_mobile, redirect_url, udf1, udf2, udf3 }),
+                            });
+                            if (response.ok) {
+                                const data_result = await response.json();
+                                res.json(data_result);
+                            } else {
+                                console.error('API request failed');
+                                res.status(401).json({ status: false, error: 'API request failed' });
+                            }
+                        } catch (error) { res.status(404).json({ status: false, error: 'Internal server error 1' }); }
+                    } catch (err) {
+                        console.error(err);
+                        res.status(500).json({ status: false, error: 'Internal server error 2' });
+                    }
+                });
             } catch (err) {
                 console.error(err);
-                res.status(500).json({ message: 'Internal server error' });
+                res.status(500).json({ status: false, error: 'Internal server error' });
             }
         });
     } catch (error) {
         console.log(error);
-        res.status(401).json({ message: 'Unauthorized' });
+        res.status(401).json({ status: false, error: 'Unauthorized' });
     }
+});
+
+app.post('/api/capturePayment', async (req, res) => {
+    if (req.body.status === 'success') {
+        const amt = parseInt(req.body.amount);
+        const uid = parseInt(req.body.p_info.split('-')[0]);
+        const response = await nodeFetch('https://suredeposit.in/setData/deposit', {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ amt: amt, uid: uid })
+        });
+        if (response.ok) {
+            const data_result = await response.json();
+            if (data_result.success === true) res.redirect('/success');
+            else res.redirect('/failure');
+        }
+        else res.redirect('/failure');
+    }
+    else res.redirect('/failure');
 });
 
 //withdraw api
