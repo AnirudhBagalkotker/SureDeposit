@@ -67,15 +67,16 @@ exports.bank = async (req, res) => {
 exports.summary = async (req, res) => {
 	try {
 		const uid = await getUID(req, res);
-		db.query('SELECT CBAL, CINT, CINV, TINV, TINT FROM ACCOUNT WHERE UID = ?', [uid], async (error, result) => {
+		db.query('SELECT CBAL, CINT, CINV, TINV, TINT, CINVDATE FROM ACCOUNT WHERE UID = ?', [uid], async (error, result) => {
 			try {
 				const cbal = result[0].CBAL;
 				const cint = result[0].CINT;
 				const cinv = result[0].CINV;
 				const tinv = result[0].TINV;
 				const tint = result[0].TINT;
+				const cinvdate = result[0].CINVDATE;
 
-				res.json({ cbal, cint, cinv, tinv, tint });
+				res.json({ cbal, cint, cinv, tinv, tint, cinvdate });
 
 			} catch (err) {
 				console.error(err);

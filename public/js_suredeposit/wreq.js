@@ -13,7 +13,17 @@ if (per == 0) {
 	h5.classList.remove("hidden");
 }
 if (per == 1) {
-	perTxt.innerHTML = "1% Withdrawal fee"
+	fetch('/getData/summary').then(response => response.json()).then(data => {
+		const cinvdate = new Date(data.cinvdate);
+		const today = new Date();
+		const diff = (today - cinvdate) / (1000 * 60 * 60 * 24)
+		if (diff >= 30) perTxt.innerHTML = `1% Withdrawal fee`;
+		else {
+			perTxt.innerHTML = `NOTE: You cannot withdraw before one month of depositing`;
+			payBtn.classList.add("btn-unselect");
+			payBtn.setAttribute("disabled", true);
+		}
+	})
 }
 
 fetch('/getData/bank')
