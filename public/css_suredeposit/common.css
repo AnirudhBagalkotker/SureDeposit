@@ -495,10 +495,10 @@ button,
 }
 
 .yellow-box {
-    background-color: #fbf5dd;
-    border: 1px solid #eed202;
+    background-color: #fefbe8;
+    border: 1px solid #ffaa00;
     border-radius: 6.5px;
-    color: #eed202;
+    color: #ffaa00;
     text-align: center;
     margin: 0px auto;
     padding: 5%;
@@ -506,6 +506,23 @@ button,
     /* align-items: center; */
     justify-content: space-between;
     gap: 1.5vh;
+}
+
+.colored-box {
+    align-items: flex-start;
+    text-align: left;
+    margin: 2vh auto;
+}
+
+.colored-box .flex-row {
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.colored-box .flex-row .text {
+    font-size: 12px;
 }
 
 .grey-box {
@@ -888,6 +905,31 @@ table tr:not(:last-child) td:after {
     transition: transform 0.3s ease-in-out;
 }
 
+/* Menu-Bar */
+
+.menu-bar {
+    gap: 5%;
+}
+
+.menu-btn {
+    background-color: var(--white);
+    border: 2px solid var(--black3);
+    border-radius: 6px;
+    height: 2.2rem;
+    margin-bottom: 0;
+    font-size: 16px;
+    letter-spacing: normal;
+    font-weight: bold;
+    color: var(--black);
+    transition: all 0.35s ease-out;
+}
+
+.menu-btn.active {
+    background-color: var(--color-primary);
+    border: 2px solid var(--shadow);
+    color: var(--bgcol);
+}
+
 /* Navbar */
 .Navbar {
     border-radius: 32px 32px 0 0;
@@ -1085,7 +1127,7 @@ table tr:not(:last-child) td:after {
     position: absolute;
     width: 15.75vw;
     height: 15.75vw;
-    border: 1.75vw solid #002e6f;
+    border: 1.75vw solid var(--color-primary);
     border-top-color: transparent;
     border-radius: 50%;
 }

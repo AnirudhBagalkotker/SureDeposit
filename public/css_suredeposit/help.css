@@ -16,7 +16,7 @@ table td:first-child {
     color: var(--black3);
 }
 
-.faq-content>.flex-colunm  {
+.faq-content>.flex-colunm {
     width: 80vw;
     position: relative;
     left: 5vw;
@@ -49,22 +49,4 @@ table td:last-child img {
     display: flex;
     flex-direction: column-reverse;
     margin-bottom: 10vh;
-}
-
-#viweTickets #ticketBox .ticket-box {
-    align-items: flex-start;
-    text-align: left;
-    margin: 2vh auto;
-}
-
-#viweTickets #ticketBox .ticket-box .flex-row {
-    gap: 30%;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 100%;
-}
-
-#viweTickets #ticketBox .ticket-box .flex-row .text {
-    font-size: 12px;
 }
