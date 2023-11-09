@@ -208,6 +208,10 @@ body {
     height: 100vh;
 }
 
+.h-auto {
+    height: auto;
+}
+
 /* display */
 
 .hidden {
