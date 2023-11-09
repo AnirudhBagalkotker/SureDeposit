@@ -20,10 +20,10 @@ fetch('/getData/help')
 			const [tdate, extra] = date.split('T');
 
 			box.innerHTML += ` 
-				<div class="ticket-box ${color} flex-colunm ">
-					<span class="ticket-item h-6 b"> ${ticket.TITLE} </span>
-					<span class="ticket-item text2"> ${ticket.ISSUE} </span>
-					<div class="ticket-item flex-row">
+				<div class="colored-box ${color} flex-colunm ">
+					<span class="colored-item h-6 b"> ${ticket.TITLE} </span>
+					<span class="colored-item text2"> ${ticket.ISSUE} </span>
+					<div class="colored-item flex-row">
 						<span class="text2 b"> ${tdate} </span>
 						<span class="text2 b"> ${solved} </span>
 					</div>
