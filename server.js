@@ -262,6 +262,18 @@ app.get('/summary', (req, res) => {
 
 });
 
+//history screen
+app.get('/history', (req, res) => {
+    if (getUID(req, res)) {
+        res.status(200).sendFile(path.join(staticPath, "./history.html"));
+        // res.status(200).render('history');
+    }
+    else {
+        res.status(200).redirect("/signup");
+    }
+
+});
+
 //settings screen
 app.get('/settings', (req, res) => {
     if (getUID(req, res)) {
