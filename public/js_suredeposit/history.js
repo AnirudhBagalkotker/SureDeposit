@@ -8,14 +8,14 @@ fetch('/getData/history').then(response => response.json()).then(data => {
 	if (deposits.length === 0) {
 		depositBox.innerHTML +=
 			`<div class="grey-box padding flex-colunm ">
-				<img src="img_suredeposit/no-deposit.png" alt="No Deposit" class="no-deposit w-half h-auto">	
+				<img src="img_suredeposit/no-deposit.svg" alt="No Deposit" class="no-deposit w-half h-auto">	
 				<h3 class="b color margin-bottom text center">You Don\'t Have Any Deposits</h3>
 			</div>`;
 	}
 	if (withdrawals.length === 0) {
 		withdrawalBox.innerHTML +=
 			`<div class="grey-box padding flex-colunm ">
-				<img src="img_suredeposit/no-deposit.png" alt="No Deposit" class="no-deposit w-half h-auto">	
+				<img src="img_suredeposit/no-deposit.svg" alt="No Deposit" class="no-deposit w-half h-auto">	
 				<h3 class="b color margin-bottom text center">You Don\'t Have Any Withdrawals</h3>
 			</div>`;
 	}
