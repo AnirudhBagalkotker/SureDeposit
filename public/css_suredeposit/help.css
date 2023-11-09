@@ -19,7 +19,7 @@ table td:first-child {
 .faq-content>.flex-colunm {
     width: 80vw;
     position: relative;
-    left: 5vw;
+    padding-left: 6vw;
 }
 
 table td:last-child img {
