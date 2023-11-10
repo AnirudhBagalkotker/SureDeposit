@@ -11,20 +11,41 @@
     font-size: 6.5vw;
 }
 
-table td:first-child {
+.faq-content {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease-in-out;
+}
+
+.faq-content p {
+    margin: 0;
+    text-align: start;
+}
+
+.faq-arrow {
+    transition: transform 0.3s ease-in-out;
+}
+
+.faq-row td:first-child {
     width: 90%;
     color: var(--black3);
 }
 
-.faq-content>.flex-colunm {
-    width: 80vw;
+.faq-content>td {
+    width: 100% !important;
     position: relative;
     padding-left: 6vw;
 }
 
-table td:last-child img {
+.faq-row td:last-child img {
     position: relative;
     top: 2px;
+}
+
+.faq-arrow {
+    padding-left: 12px;
+    display: inline-block;
+    padding-bottom: 5px;
 }
 
 #helps .btn,

@@ -1,0 +1,27 @@
+table td:first-child {
+	width: 100%;
+}
+
+table td:last-child {
+	text-align: center;
+}
+
+table tr:not(:last-child) td:after {
+	width: 0%;
+	height: 0;
+	background: none;
+}
+
+#depositBox td,
+#withdrawalBox td {
+	padding: 1vh 10px;
+}
+
+#depositBox tr,
+#withdrawalBox tr {
+	margin: 2vh 0;
+}
+
+.item-space {
+	justify-content: space-between;
+}
