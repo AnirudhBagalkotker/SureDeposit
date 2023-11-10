@@ -512,25 +512,6 @@ app.get('/api/deposit', async (req, res) => {
     }
 })
 
-//RazorPay
-app.post('/orders', async (req, res) => {
-    let { amount } = req.body;
-
-    var instance = new Razorpay({ key_id: 'rzp_live_uQGjObim82lWnp', key_secret: '4quzQo8TjGYd6jG2ilgY4KNL' });
-
-    let order = await instance.orders.create({
-        amount: amount * 100,
-        currency: "INR",
-        receipt: "receipt#1",
-    });
-
-    res.status(201).json({
-        success: true,
-        order,
-        amount,
-    })
-})
-
 // app.get('/razorpay/pay', async (req, res) => {
 //     try {
 //         const uid = await getUID(req, res);
@@ -555,7 +536,7 @@ app.post('/orders', async (req, res) => {
 app.post('/api/initiatePayment', async (req, res) => {
     const key = process.env.UPI_API_KEY;
     const amount = req.body.amount;
-    const redirect_url = "https://suredeposit.in/success";
+    const redirect_url = "https://www.suredeposit.in/success";
     const udf1 = "UDF1";
     const udf2 = "UDF2";
     const udf3 = "UDF3";
