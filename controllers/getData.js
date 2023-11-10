@@ -132,8 +132,8 @@ exports.help = async (req, res) => {
 exports.history = async (req, res) => {
 	try {
 		const uid = await getUID(req, res);
-		db.query('SELECT * FROM DEPOSIT WHERE UID = ? ORDER BY DTDATE DESC', [uid], async (error, deposit) => {
-			db.query('SELECT * FROM WITHDRAW WHERE UID = ? ORDER BY WRDATE DESC', [uid], async (error, withdraw) => {
+		db.query('SELECT * FROM DEPOSIT WHERE UID = ? ORDER BY DTDATE DESC, DTID DESC', [uid], async (error, deposit) => {
+			db.query('SELECT * FROM WITHDRAW WHERE UID = ? ORDER BY WRDATE DESC, WTID DESC', [uid], async (error, withdraw) => {
 				res.status(200).json({ deposits: deposit, withdrawals: withdraw });
 			})
 		});
