@@ -70,7 +70,7 @@ fetch('/api/deposit').then(response => response.json()).then(data => {
 
     //check for the continue button to activate and deactivate
     function payBtnClick(value) {
-        if (((((value) >= min && (value) <= max)) || (value) == 25) && payBtn.classList.contains("btn-unselect")) {
+        if (((((value) >= min && (value) <= max))) && payBtn.classList.contains("btn-unselect")) {
             payBtn.classList.remove("btn-unselect");
         }
         else if (((value) < min) && !payBtn.classList.contains("btn-unselect")) {
