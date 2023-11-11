@@ -1,5 +1,15 @@
-// get the form element
 const signInForm = document.querySelector('#signin');
+
+function togglePasswordVisibility() {
+	var passField = document.getElementById("pass");
+	var showBtn = document.querySelector(".show-password-btn");
+
+	if (passField.type === "password") {
+		passField.type = "text";
+	} else {
+		passField.type = "password";
+	}
+}
 
 // add an event listener to the form's submit event
 signInForm.addEventListener('submit', (event) => {
