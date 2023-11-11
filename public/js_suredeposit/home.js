@@ -7,6 +7,11 @@ document.getElementById("bal").innerHTML = parseInt(bal);
 document.getElementById("int").innerHTML = parseInt(int);
 document.getElementById("nameBox").innerHTML = Name;
 
+localStorage.removeItem("amt");
+localStorage.removeItem("wamt");
+localStorage.removeItem("oamt");
+localStorage.removeItem("per");
+
 const investment = parseInt(inv);
 const max = 500000;
 const per = parseInt((investment / max) * 100);

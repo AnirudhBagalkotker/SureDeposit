@@ -7,6 +7,10 @@ const payBtn = document.getElementById("pay");
 const bal = document.getElementById("bal");
 var valBox = document.getElementById("val");
 
+localStorage.removeItem("wamt");
+localStorage.removeItem("oamt");
+localStorage.removeItem("per");
+
 min = 100;
 max = 0;
 
