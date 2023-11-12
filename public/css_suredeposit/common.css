@@ -120,6 +120,7 @@
     --black: #000;
 
     --color-primary: #0062F5;
+    --color-primary2: #003aa4;
     --color-sec: #ebf3ff;
     --bgcol: #fcfcfc;
 
@@ -243,6 +244,10 @@ footer {
     text-align: center;
 }
 
+.text-wrap {
+    text-wrap: balance;
+}
+
 .item-center {
     -webkit-align-items: center;
     -webkit-box-align: center;
@@ -334,9 +339,14 @@ button,
     flex-direction: row;
 }
 
+.gap {
+    gap: 1.5vh;
+}
+
 .shadow {
     -webkit-box-shadow: 0 1.25px 2.25px 1.25px #00000023;
     box-shadow: 0 1.25px 2.25px 1.25px #00000023;
+    background-color: var(--white);
 }
 
 .brad {
@@ -447,7 +457,9 @@ button,
 /* color */
 
 .color {
-    color: var(--color-primary);
+    background: -webkit-linear-gradient(var(--color-primary), var(--color-primary2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .color-sec {
@@ -717,6 +729,18 @@ hr.sto:after {
     width: min(65vw, 300px);
     margin-top: 2vh;
     margin-bottom: 2vh;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+    -moz-appearance: textfield;
 }
 
 /* Button */

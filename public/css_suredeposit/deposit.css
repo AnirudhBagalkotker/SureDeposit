@@ -20,7 +20,9 @@
     font-size: 60px;
     padding: 8px;
     background-color: var(--bgcol);
-    color: var(--color-primary);
+    background: -webkit-linear-gradient(var(--color-primary), var(--color-primary2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     font-weight: 600;
     font-family: "Poppins", sans-serif;
     pointer-events: none;

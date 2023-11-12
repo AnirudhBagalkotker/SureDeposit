@@ -46,7 +46,9 @@
 .profile__value {
     font-size: 2.15vh;
     font-weight: 600;
-    color: var(--color-primary);
+    background: -webkit-linear-gradient(var(--color-primary), var(--color-primary2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .profile__footer {

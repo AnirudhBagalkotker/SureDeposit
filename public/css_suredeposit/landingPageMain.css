@@ -54,7 +54,9 @@
 	font-weight: 600;
 	font-size: 22px;
 	line-height: 28px;
-	color: var(--color-primary);
+	background: -webkit-linear-gradient(var(--color-primary), var(--color-primary2));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 	letter-spacing: 0.25px;
 }
 

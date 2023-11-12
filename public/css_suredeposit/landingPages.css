@@ -59,7 +59,9 @@ button,
 	font-weight: 700;
 	font-size: 6.5vh;
 	line-height: 8vh;
-	color: var(--color-primary);
+	background: -webkit-linear-gradient(var(--color-primary), var(--color-primary2));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 	letter-spacing: 0.5px;
 }
 
@@ -78,7 +80,9 @@ button,
 	font-style: normal;
 	font-weight: 700;
 	font-size: 32px;
-	color: var(--color-primary);
+	background: -webkit-linear-gradient(var(--color-primary), var(--color-primary2));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 	letter-spacing: 0.5px;
 }
 
@@ -341,7 +345,9 @@ footer {
 }
 
 .footer .sub-heading {
-	color: var(--color-primary);
+	background: -webkit-linear-gradient(var(--color-primary), var(--color-primary2));
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 .app-links {
