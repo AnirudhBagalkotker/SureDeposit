@@ -1,16 +1,17 @@
 // importing packages
 const express = require('express');
 const bcrypt = require('bcrypt');
-const pug = require('pug');
+// const pug = require('pug');
 const path = require('path');
 const dotenv = require('dotenv');
 const cookieParser = require("cookie-parser");
 const jwt = require("jsonwebtoken");
 const { promisify } = require("util");
 const mysql = require('mysql');
-const Razorpay = require('razorpay');
+// const Razorpay = require('razorpay');
 const bodyParser = require("body-parser");
 const nodeFetch = require('node-fetch');
+const nodemailer = require('nodemailer');
 
 //initializing express.js
 const app = express();
@@ -51,6 +52,28 @@ db.connect((error) => {
     else {
         console.log("MySQL connected....");
     }
+})
+
+//mailer
+const infoTransporter = nodemailer.createTransport({
+    host: "mail.suredeposit.in",
+    port: 465,
+    secure: true,
+    auth: { user: "info@suredeposit.in", pass: "SureDeposit@23" }
+})
+
+const maintenanceTransporter = nodemailer.createTransport({
+    host: "mail.suredeposit.in",
+    port: 465,
+    secure: true,
+    auth: { user: "noreply.maintenance@suredeposit.in", pass: "SureDeposit@404" }
+})
+
+const passwordsTransporter = nodemailer.createTransport({
+    host: "mail.suredeposit.in",
+    port: 465,
+    secure: true,
+    auth: { user: "passwords@suredeposit.in", pass: "S3tPassword" }
 })
 
 //app port
@@ -157,6 +180,61 @@ app.post('/auth/signin', async (req, res) => {
     );
 });
 
+app.post('/auth/forgot-password', async (req, res) => {
+    const email = req.body.cEmail.trim();
+    db.query("SELECT * FROM USERS WHERE EMAIL = ?", [email], (error, users) => {
+        if (error) {
+            console.error(error);
+            res.status(500).json({ success: false, error: error });
+        }
+        else if (users.length === 0) res.status(404).json({ success: false, error: 'User not found' });
+        else {
+            const otp = Math.floor(1000 + Math.random() * 9000);
+            const mailOptions = {
+                from: '"Don\'t Reply" <passwords@suredeposit.in>',
+                to: email,
+                subject: "SureDeposit | OTP for Password Reset",
+                html: `<h4 style="color:#0062F5;">Hello ${users[0].NAME},\n Your OTP for Password Reset is</h4>
+                    <h1 style="color:#1c2b2d; letter-spacing: 5px; margin-top: 10px;">${otp}</h1>`
+            }
+            console.error(otp);
+            passwordsTransporter.sendMail(mailOptions, (error, info) => {
+                if (error) {
+                    console.error(error);
+                    res.status(500).json({ success: false, error: error });
+                } else {
+                    const time = new Date().getTime();
+                    res.status(200).json({ success: true, token: time, otp: otp });
+                }
+            });
+        }
+    })
+})
+
+app.post('/auth/reset-password', async (req, res) => {
+    const email = req.body.cEmail;
+    db.query("SELECT * FROM USERS WHERE EMAIL = ?", [email], async (error, users) => {
+        if (error) {
+            console.error(error);
+            res.status(500).json({ success: false, error: error });
+        }
+        else if (users.length === 0) res.status(404).json({ success: false, error: 'User not found' });
+        else {
+            try {
+                let hashedPassword = await bcrypt.hash(req.body.pass, 12);
+                db.query("UPDATE USERS SET PASSWORD = ? WHERE UID = ?", [hashedPassword, users[0].UID], (error, result) => {
+                    if (error) throw Error(error);
+                    else res.status(200).json({ success: true });
+                })
+            }
+            catch (error) {
+                console.error(error);
+                res.status(500).json({ success: false, error: error });
+            }
+        }
+    })
+})
+
 //routes
 
 //landing page
@@ -199,6 +277,20 @@ app.get('/refund-policy', (req, res) => {
 app.get('/signup', (req, res) => {
     res.status(200).sendFile(path.join(staticPath, "./gets1.html"));
     // res.status(200).render('gets1');
+
+});
+
+//reset password screen
+app.get('/reset-password', (req, res) => {
+    res.status(200).sendFile(path.join(staticPath, "./resetPassword.html"));
+    // res.status(200).render('resetPassword');
+
+});
+
+//forgot password screen
+app.get('/forgot-password', (req, res) => {
+    res.status(200).sendFile(path.join(staticPath, "./forgotPassword.html"));
+    // res.status(200).render('resetPassword');
 
 });
 
@@ -337,9 +429,9 @@ app.get('/success', (req, res) => {
 //deposit screen
 app.get('/deposit', (req, res) => {
     if (getUID(req, res)) {
-        // res.status(200).sendFile(path.join(staticPath, "./deposit.html"));
+        res.status(200).sendFile(path.join(staticPath, "./deposit.html"));
         // res.status(200).render('deposit');
-        res.status(200).sendFile(path.join(staticPath, "./maintenance.html"));
+        // res.status(200).sendFile(path.join(staticPath, "./maintenance.html"));
     }
     else {
         res.status(200).redirect("/signup");

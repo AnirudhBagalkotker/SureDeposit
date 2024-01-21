@@ -20,7 +20,7 @@ signInForm.addEventListener('submit', (event) => {
 	const emailField = document.querySelector('#cEmail');
 	const passwordField = document.querySelector('#pass');
 
-	// get the error box element
+	// Error box elements
 	const errorBox = document.querySelector('.error-box');
 	const errorText = document.querySelector('#error-box');
 
